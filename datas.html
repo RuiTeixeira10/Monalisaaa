@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Datas especiais</title>
+    <link rel="stylesheet" href="datas.css">
+</head>
+<body>
+
+    <div class="calendario-container">
+
+        <div class="calendario-header">
+            <button id="prevMes" class="nav-btn">◀</button>
+            <h1 id="mesAno"></h1>
+            <button id="nextMes" class="nav-btn">▶</button>
+        </div>
+
+        <div class="calendario-grid" id="calendarioGrid"></div>
+        
+        <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
+
+    </div>
+
+        <!-- POPUP DA DATA -->
+    <div id="popupData" class="popup-data">
+        <div class="popup-card">
+            <h2 id="tituloData"></h2>
+            <p id="descricaoData" class="descricao-data"></p>
+            <button class="btn-fechar" onclick="fecharPopupData()">Fechar</button>
+        </div>
+    </div>
+
+
+    <script src="datas.js"></script>
+</body>
+</html>

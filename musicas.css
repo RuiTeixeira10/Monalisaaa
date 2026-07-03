@@ -1,0 +1,422 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap');
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
+}
+
+h1 {
+    margin-bottom: 8px;
+    font-size: 46px;
+    font-weight: normal;
+    color: #e63950;
+    text-shadow: 0 2px 6px rgba(230, 57, 80, 0.2);
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+}
+
+/* ornamento decorativo por baixo do título */
+h1::after {
+    content: "❧";
+    display: block;
+    font-size: 20px;
+    color: #ffb3bd;
+    margin: 6px 0 25px;
+    letter-spacing: 8px;
+}
+
+
+.musicas-container {
+    background: rgba(255,255,255,0.9);
+    width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.titulo-musicas {
+    font-family: "Great Vibes", cursive;
+    font-size: 48px;
+    text-align: center;
+    color: #e63950;
+    margin-bottom: 30px;
+}
+
+/* LISTA DE MÚSICAS — cartão com "lombada" colorida e seta no hover */
+.musica-item {
+    background: #fff;
+    padding: 18px 24px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    font-size: 21px;
+    color: #4a3b2a;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+/* "lombada" colorida à esquerda, como uma capa de disco */
+.musica-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 5px;
+    background: linear-gradient(180deg, #ff8a9a, #e63950);
+}
+
+/* seta que aparece no hover, sugerindo "toca-me" */
+.musica-item::after {
+    content: "▶";
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #e63950;
+    font-size: 15px;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.musica-item:hover {
+    background: #fff5f6;
+    transform: translateX(4px);
+    box-shadow: 0 8px 22px rgba(230, 57, 80, 0.2);
+}
+
+.musica-item:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(4px);
+}
+
+.musica-item:active {
+    transform: translateX(2px) scale(0.99);
+}
+
+/* POPUP */
+.popup-musica {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background: rgba(0,0,0,0.3);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.popup-card-musica {
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh; /* impede de ultrapassar o ecrã */
+    overflow-y: auto; /* ativa scroll interno */
+    padding: 30px;
+    border-radius: 20px;
+    background: white;
+}
+
+.popup-card-musica h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: 42px;
+    text-align: center;
+    color: #7a5a3a;
+}
+
+.musica-conteudo {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.letra {
+    width: 55%;
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+.info-musica {
+    width: 45%;
+    text-align: center;
+}
+
+.capa-musica {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.autor-musica {
+    margin-top: 10px;
+    font-size: 20px;
+    font-style: italic;
+}
+
+/* BOTÃO TRADUÇÃO — outline, para não competir com o botão do Spotify */
+.btn-traducao {
+    margin-top: 20px;
+    padding: 10px 24px;
+    background: white;
+    color: #e63950;
+    border: 2px solid #e63950;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.btn-traducao:hover {
+    background: #e63950;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-traducao:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.traducao-musica {
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #7a5a3a;
+}
+
+.btn-fechar {
+    margin-top: 30px;
+    padding: 12px 32px;
+    background: linear-gradient(135deg, #ff8a9a, #e63950);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow:
+        0 6px 16px rgba(230, 57, 80, 0.35),
+        inset 0 1px 1px rgba(255,255,255,0.3);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-fechar:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 10px 22px rgba(230, 57, 80, 0.45),
+        inset 0 1px 1px rgba(255,255,255,0.3);
+}
+
+.btn-fechar:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.letra p {
+    margin: 4px 0;
+    font-size: 22px;
+}
+
+.linha-traduzida {
+    margin-top: 8px;
+}
+
+.linha-trad {
+    color: #7a5a3a;
+    font-style: italic;
+}
+
+.linha-bloco {
+    margin-bottom: 12px;
+}
+
+.linha-original {
+    font-size: 22px;
+}
+
+.linha-trad {
+    font-size: 20px;
+    color: #7a5a3a;
+    font-style: italic;
+    margin-left: 10px;
+}
+
+/* BOTÃO VOLTAR — pill com gradiente, coerente com o resto do site */
+.btn-voltar {
+    margin-top: 30px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #ff8a9a, #e63950);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow:
+        0 6px 16px rgba(230, 57, 80, 0.35),
+        inset 0 1px 1px rgba(255,255,255,0.3);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-voltar:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 10px 22px rgba(230, 57, 80, 0.45),
+        inset 0 1px 1px rgba(255,255,255,0.3);
+}
+
+.btn-voltar:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.categorias {
+    text-align: center;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    
+}
+
+.categorias button {
+    padding: 10px 22px;
+    background: white;
+    color: #e63950;
+    border: 2px solid #e63950;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    
+}
+
+.categorias button:hover {
+    background: #ffe3e8;
+    transform: translateY(-2px);
+}
+
+.categorias button:active {
+    transform: translateY(0) scale(0.97);
+}
+
+/* estado ativo — categoria selecionada no momento */
+.categorias button.ativa {
+    background: linear-gradient(135deg, #ff8a9a, #e63950);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 6px 16px rgba(230, 57, 80, 0.35);
+    
+}
+
+.categorias button.ativa:hover {
+    transform: translateY(-2px);
+}
+.player-container {
+    margin-top: 15px;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.player-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: radial-gradient(circle at 35% 30%, #ff9aa8, #e63950 70%);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 3px 8px rgba(230, 57, 80, 0.4),
+        inset 0 -2px 4px rgba(0,0,0,0.2),
+        inset 0 2px 3px rgba(255,255,255,0.3);
+    transition: transform 0.15s ease;
+    flex-shrink: 0;
+}
+
+.player-btn:hover {
+    transform: scale(1.08);
+}
+
+.player-btn:active {
+    transform: scale(0.95);
+}
+
+.barra-progresso {
+    flex: 1;
+    height: 5px;
+    background: rgba(230, 57, 80, 0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#progresso {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff97a6, #e63950);
+    border-radius: 10px;
+    transition: width 0.1s linear;
+}
+
+.btn-spotify {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #1ed760, #1aa34a);
+    color: white;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 999px; /* pill, mais elegante que cantos quadrados */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    box-shadow:
+        0 6px 16px rgba(29, 185, 84, 0.4),
+        inset 0 1px 1px rgba(255,255,255,0.3);
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-spotify svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.btn-spotify:hover {
+    background: linear-gradient(135deg, #22e065, #1db954);
+    transform: translateY(-2px);
+    box-shadow:
+        0 10px 22px rgba(29, 185, 84, 0.5),
+        inset 0 1px 1px rgba(255,255,255,0.3);
+}
+
+.btn-spotify:active {
+    transform: translateY(0) scale(0.97);
+}

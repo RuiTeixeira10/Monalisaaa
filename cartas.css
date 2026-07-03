@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
+}
+
+/* RETÂNGULO GRANDE */
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    width: 700px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 8px;
+    font-size: 46px;
+    font-weight: normal;
+    color: #e63950;
+    text-shadow: 0 2px 6px rgba(230, 57, 80, 0.2);
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+}
+
+/* ornamento decorativo por baixo do título */
+h1::after {
+    content: "❧";
+    display: block;
+    font-size: 20px;
+    color: #ffb3bd;
+    margin: 6px 0 25px;
+    letter-spacing: 8px;
+}
+
+h2 {
+    margin-bottom: 6px;
+    font-size: 66px;
+    font-weight: normal;
+    color: #ffffff;
+
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    text-shadow: 0 3px 8px rgba(230, 57, 80, 0.35);
+}
+
+h2::before {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 1px;
+    margin: 0 auto 14px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+}
+
+h2::after {
+    content: "❧";
+    display: block;
+    font-size: 20px;
+    color: #ffe3e8;
+    margin: 8px 0 25px;
+    letter-spacing: 8px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* LISTA DE CARTAS */
+.lista-cartas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.carta-item {
+    width: 100%;
+    background: #ff6b81;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; /* importante: esconde a aba dentro dos cantos arredondados */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 8px 20px rgba(230, 57, 80, 0.25);
+    text-align: center;
+    perspective: 600px;
+}
+
+.carta-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 26px rgba(230, 57, 80, 0.35);
+}
+
+/* ABA do envelope — ocupa a largura toda, tom mais claro, dentro do retângulo */
+.carta-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(160deg, #ff97a6, #ff7d90);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center;
+    z-index: 1;
+}
+
+/* linha de "costura" subtil por baixo da aba */
+.carta-item::after {
+    content: "";
+    position: absolute;
+    top: 58px;
+    left: 8%;
+    width: 84%;
+    height: 1px;
+    background: rgba(0,0,0,0.12);
+    z-index: 1;
+}
+
+/* selo de cera, sobre a ponta da aba */
+.envelope-selo {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ff9aa8, #e63950 70%);
+    color: #fff5f5;
+    font-size: 15px;
+    box-shadow:
+        0 3px 6px rgba(0,0,0,0.3),
+        inset 0 -3px 4px rgba(0,0,0,0.25),
+        inset 0 2px 3px rgba(255,255,255,0.4);
+    z-index: 3;
+}
+
+/* a cartinha escondida, some entre a aba e o corpo */
+.envelope-papel {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    width: 68%;
+    height: 40px;
+    background: linear-gradient(#fffdf8, #fdf6e3);
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transform: translate(-50%, 0) scale(0.85);
+    z-index: 2;
+    opacity: 0;
+}
+
+.carta-item h2 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 78px 25px 30px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* ===== ANIMAÇÃO DO ENVELOPE ===== */
+.carta-item.aberta::before {
+    animation: abrirAba 0.45s ease forwards;
+}
+
+.carta-item.aberta .envelope-papel {
+    animation: sairPapel 0.65s ease 0.2s forwards;
+}
+
+@keyframes abrirAba {
+    to { transform: rotateX(180deg); }
+}
+
+@keyframes sairPapel {
+    0%   { transform: translate(-50%, 0) scale(0.85); opacity: 1; }
+    55%  { transform: translate(-50%, -55px) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -95px) scale(1.15); opacity: 0; }
+}
+
+/* POPUP DA CARTA */
+.popup-carta {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background: rgba(0,0,0,0);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 9999;
+    transition: background 0.35s ease;
+    perspective: 1200px;
+}
+
+.popup-carta.visivel {
+    background: rgba(0,0,0,0.3);
+}
+
+/* PAPEL ESTILO CARTA VINTAGE */
+.papel {
+    background: #fdf6e3;
+    width: 70%;
+    max-width: 900px;
+    height: 80%;
+    padding: 70px 60px;
+    border-radius: 4px; /* cartas não têm cantos muito arredondados */
+    overflow-y: auto;
+    border: 1px solid #d8c49a;
+
+    /* textura de papel: ruído subtil via gradientes repetidos */
+    background-image:
+        radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
+        radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px);
+    background-size: 3px 3px, 5px 5px;
+    background-position: 0 0, 1px 2px;
+
+    /* vinheta suave nos cantos, como papel envelhecido, + sombra externa */
+    box-shadow:
+        inset 0 0 60px rgba(122, 90, 58, 0.15),
+        inset 0 0 12px rgba(122, 90, 58, 0.1),
+        0 15px 40px rgba(0,0,0,0.35);
+
+    /* estado inicial: pequeno, transparente e ligeiramente rodado */
+    opacity: 0;
+    transform: scale(0.4) translateY(40px) rotateZ(-1.5deg);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.popup-carta.visivel .papel {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotateZ(-0.6deg); /* mantém leve inclinação, efeito "colocado à mão" */
+}
+
+/* SCROLL FINO */
+.papel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.papel::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.papel::-webkit-scrollbar-thumb {
+    background: #c7b08a;
+    border-radius: 10px;
+}
+
+/* TÍTULO DA CARTA */
+.papel h2 {
+    text-align: center;
+    margin-bottom: 6px;
+    font-size: 46px;
+    font-family: "Great Vibes", cursive;
+    font-weight: normal;
+    color: #7a5a3a;
+    text-shadow: 0 2px 4px rgba(122, 90, 58, 0.15);
+    letter-spacing: 0.5px;
+}
+
+/* ornamento decorativo por baixo do título, com linhas laterais */
+.papel h2::after {
+    content: "❧";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-size: 20px;
+    color: #c7a96a;
+    margin: 10px 0 35px;
+}
+
+.papel h2::before {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 1px;
+    margin: 0 auto 12px;
+    background: linear-gradient(90deg, transparent, #c7a96a, transparent);
+}
+/* TEXTO ALINHADO ÀS LINHAS */
+.texto-carta {
+    white-space: pre-line;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 26px;
+
+    /* TEM de ser igual ao background-size do .papel */
+    line-height: 38px;
+
+    padding-top: 4px;
+
+    margin-top: 10px;
+    color: #3a2a1a; /* mais escuro = mais contraste */
+    letter-spacing: 0.3px;
+}
+
+/* letra capitular na primeira letra do texto */
+.texto-carta::first-letter {
+    font-family: "Great Vibes", cursive;
+    font-size: 64px;
+    font-style: normal;
+    color: #7a5a3a;
+    float: left;
+    line-height: 0.8;
+    padding-right: 8px;
+    padding-top: 8px;
+}
+
+/* cursor a piscar durante a escrita do texto */
+.texto-carta .cursor {
+    display: inline-block;
+    animation: piscar 0.8s steps(1) infinite;
+}Cartas para a princesa
+❤
+O pedido do para sempre
+❤
+
+
+@keyframes piscar {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* BOTÃO VOLTAR — pill com gradiente, coerente com o resto do site */
+.btn-voltar {
+    margin-top: 30px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #ff8a9a, #e63950);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow:
+        0 6px 16px rgba(230, 57, 80, 0.35),
+        inset 0 1px 1px rgba(255,255,255,0.3);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-voltar:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 10px 22px rgba(230, 57, 80, 0.45),
+        inset 0 1px 1px rgba(255,255,255,0.3);
+}
+
+.btn-voltar:active {
+    transform: translateY(0) scale(0.97);
+}

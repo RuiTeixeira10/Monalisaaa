@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Entrada Secreta 💌</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <div class="heart">❤️</div>
+        <h1>LOGIN</h1>
+        <p>Para a Monalisa entrar, terá que colocar a nossa data 😉</p>
+
+        <div id="popup" class="popup">Erraste? Depois queixa-te que estou sempre a falar do Messi...</div>
+
+        <input id="dateInput" type="text" placeholder="xx/xx/xxxx" onclick="activateDatePicker()">
+
+        <button onclick="checkDate()">Entrar</button>
+    </div>
+
+    <script>
+        function activateDatePicker() {
+            const input = document.getElementById('dateInput');
+            input.type = "date";
+            if (input.showPicker) input.showPicker();
+        }
+
+        function checkDate() {
+            const input = document.getElementById('dateInput').value.trim();
+            const popup = document.getElementById('popup');
+            if (input === "2026-06-27") {
+    window.location.href = "pagina_amor.html";
+}
+
+
+            popup.classList.remove("show");
+
+            if (input !== "2026-06-27") {
+                popup.classList.add("show");
+
+                setTimeout(() => {
+                    popup.classList.remove("show");
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>

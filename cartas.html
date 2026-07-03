@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Cartas</title>
+    <link rel="stylesheet" href="cartas.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Cartas para a princesa</h1>
+
+        <div class="lista-cartas">
+
+            <!-- CARTA 1 -->
+            <div class="carta-item" onclick="abrirCartaAnimada(this, 'pedido')">
+                <div class="envelope-papel"></div>
+                <div class="envelope-aba"></div>
+                <div class="envelope-selo">❤</div>
+                <h2>O pedido do para sempre</h2>
+            </div>
+
+            <!-- CARTA 2 -->
+            <div class="carta-item" onclick="abrirCartaAnimada(this, 'distantemente')">
+                <div class="envelope-papel"></div>
+                <div class="envelope-aba"></div>
+                <div class="envelope-selo">❤</div>
+                <h2>Distantemente perto</h2>
+            </div>
+            <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
+        </div>
+    </div>
+
+    <!-- POPUP DA CARTA -->
+    <div id="popupCarta" class="popup-carta">
+        <div class="papel">
+            <h2 id="tituloCarta"></h2>
+            <div id="textoCarta" class="texto-carta"></div>
+        </div>
+    </div>
+
+    <script src="cartas.js"></script>
+</body>
+</html>
