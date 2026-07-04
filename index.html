@@ -8,41 +8,71 @@
 <body>
     <div class="card">
         <div class="heart">❤️</div>
-        <h1>LOGIN</h1>
         <p>Para a Monalisa entrar, terá que colocar a nossa data 😉</p>
 
         <div id="popup" class="popup">Erraste? Depois queixa-te que estou sempre a falar do Messi...</div>
 
-        <input id="dateInput" type="text" placeholder="xx/xx/xxxx" onclick="activateDatePicker()">
+        <div class="data-picker">
+            <select id="dia"></select>
+            <select id="mes"></select>
+            <select id="ano"></select>
+        </div>
 
         <button onclick="checkDate()">Entrar</button>
     </div>
 
     <script>
-        function activateDatePicker() {
-            const input = document.getElementById('dateInput');
-            input.type = "date";
-            if (input.showPicker) input.showPicker();
+        const DIA_CORRETO = 27;
+        const MES_CORRETO = 6;
+        const ANO_CORRETO = 2026;
+
+        const meses = [
+            "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+            "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+        ];
+
+        function preencherSelects() {
+            const selectDia = document.getElementById('dia');
+            const selectMes = document.getElementById('mes');
+            const selectAno = document.getElementById('ano');
+
+            selectDia.innerHTML = '<option value="">Dia</option>';
+            for (let d = 1; d <= 31; d++) {
+                selectDia.innerHTML += `<option value="${d}">${d}</option>`;
+            }
+
+            selectMes.innerHTML = '<option value="">Mês</option>';
+            meses.forEach((nome, i) => {
+                selectMes.innerHTML += `<option value="${i + 1}">${nome}</option>`;
+            });
+
+            selectAno.innerHTML = '<option value="">Ano</option>';
+            const anoAtual = new Date().getFullYear();
+            for (let a = anoAtual + 1; a >= anoAtual - 10; a--) {
+                selectAno.innerHTML += `<option value="${a}">${a}</option>`;
+            }
         }
 
         function checkDate() {
-            const input = document.getElementById('dateInput').value.trim();
+            const dia = parseInt(document.getElementById('dia').value);
+            const mes = parseInt(document.getElementById('mes').value);
+            const ano = parseInt(document.getElementById('ano').value);
             const popup = document.getElementById('popup');
-            if (input === "2026-06-27") {
-    window.location.href = "pagina_amor.html";
-}
-
 
             popup.classList.remove("show");
 
-            if (input !== "2026-06-27") {
-                popup.classList.add("show");
-
-                setTimeout(() => {
-                    popup.classList.remove("show");
-                }, 5000);
+            if (dia === DIA_CORRETO && mes === MES_CORRETO && ano === ANO_CORRETO) {
+                window.location.href = "pagina_amor.html";
+                return;
             }
+
+            popup.classList.add("show");
+            setTimeout(() => {
+                popup.classList.remove("show");
+            }, 5000);
         }
+
+        preencherSelects();
     </script>
 </body>
 </html>

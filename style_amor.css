@@ -12,6 +12,31 @@ body {
     background: linear-gradient(135deg, #ff9a9e, #fecfef);
 }
 
+/* padrão de corações pixelizados, atrás de tudo */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.12;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%23ffffff'%3E%3Crect x='8' y='8' width='4' height='4'/%3E%3Crect x='12' y='8' width='4' height='4'/%3E%3Crect x='20' y='8' width='4' height='4'/%3E%3Crect x='24' y='8' width='4' height='4'/%3E%3Crect x='4' y='12' width='4' height='4'/%3E%3Crect x='8' y='12' width='4' height='4'/%3E%3Crect x='12' y='12' width='4' height='4'/%3E%3Crect x='16' y='12' width='4' height='4'/%3E%3Crect x='20' y='12' width='4' height='4'/%3E%3Crect x='24' y='12' width='4' height='4'/%3E%3Crect x='28' y='12' width='4' height='4'/%3E%3Crect x='4' y='16' width='4' height='4'/%3E%3Crect x='8' y='16' width='4' height='4'/%3E%3Crect x='12' y='16' width='4' height='4'/%3E%3Crect x='16' y='16' width='4' height='4'/%3E%3Crect x='20' y='16' width='4' height='4'/%3E%3Crect x='24' y='16' width='4' height='4'/%3E%3Crect x='28' y='16' width='4' height='4'/%3E%3Crect x='8' y='20' width='4' height='4'/%3E%3Crect x='12' y='20' width='4' height='4'/%3E%3Crect x='16' y='20' width='4' height='4'/%3E%3Crect x='20' y='20' width='4' height='4'/%3E%3Crect x='24' y='20' width='4' height='4'/%3E%3Crect x='12' y='24' width='4' height='4'/%3E%3Crect x='16' y='24' width='4' height='4'/%3E%3Crect x='20' y='24' width='4' height='4'/%3E%3Crect x='16' y='28' width='4' height='4'/%3E%3C/g%3E%3C/svg%3E");
+
+    background-size: 90px 90px;
+    background-repeat: repeat;
+    image-rendering: pixelated;
+}
+
+.container {
+    position: relative;
+    z-index: 1; /* garante que fica por cima dos corações */
+}
+
+
 .card {
     background: rgba(255, 255, 255, 0.9);
     padding: 40px 50px;

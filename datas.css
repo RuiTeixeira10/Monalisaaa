@@ -10,6 +10,30 @@ body {
     min-height: 100vh;
 }
 
+/* padrão de corações pixelizados, atrás de tudo */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.12;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%23ffffff'%3E%3Crect x='8' y='8' width='4' height='4'/%3E%3Crect x='12' y='8' width='4' height='4'/%3E%3Crect x='20' y='8' width='4' height='4'/%3E%3Crect x='24' y='8' width='4' height='4'/%3E%3Crect x='4' y='12' width='4' height='4'/%3E%3Crect x='8' y='12' width='4' height='4'/%3E%3Crect x='12' y='12' width='4' height='4'/%3E%3Crect x='16' y='12' width='4' height='4'/%3E%3Crect x='20' y='12' width='4' height='4'/%3E%3Crect x='24' y='12' width='4' height='4'/%3E%3Crect x='28' y='12' width='4' height='4'/%3E%3Crect x='4' y='16' width='4' height='4'/%3E%3Crect x='8' y='16' width='4' height='4'/%3E%3Crect x='12' y='16' width='4' height='4'/%3E%3Crect x='16' y='16' width='4' height='4'/%3E%3Crect x='20' y='16' width='4' height='4'/%3E%3Crect x='24' y='16' width='4' height='4'/%3E%3Crect x='28' y='16' width='4' height='4'/%3E%3Crect x='8' y='20' width='4' height='4'/%3E%3Crect x='12' y='20' width='4' height='4'/%3E%3Crect x='16' y='20' width='4' height='4'/%3E%3Crect x='20' y='20' width='4' height='4'/%3E%3Crect x='24' y='20' width='4' height='4'/%3E%3Crect x='12' y='24' width='4' height='4'/%3E%3Crect x='16' y='24' width='4' height='4'/%3E%3Crect x='20' y='24' width='4' height='4'/%3E%3Crect x='16' y='28' width='4' height='4'/%3E%3C/g%3E%3C/svg%3E");
+
+    background-size: 90px 90px;
+    background-repeat: repeat;
+    image-rendering: pixelated;
+}
+
+.container {
+    position: relative;
+    z-index: 1; /* garante que fica por cima dos corações */
+}
+
 .calendario-container {
     background: rgba(255,255,255,0.9);
     padding: 30px;
@@ -191,4 +215,175 @@ body {
 
 .btn-voltar:active {
     transform: translateY(0) scale(0.97);
+}
+
+.acoes-calendario {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.btn-adicionar {
+    padding: 12px 26px;
+    background: linear-gradient(135deg, #f7e7b4, #d4b45f);
+    color: #7a5a3a;
+    border: none;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow:
+        0 6px 16px rgba(212, 180, 95, 0.4),
+        inset 0 1px 1px rgba(255,255,255,0.4);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-adicionar:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 10px 22px rgba(212, 180, 95, 0.5),
+        inset 0 1px 1px rgba(255,255,255,0.4);
+}
+
+.btn-adicionar:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.label-form {
+    display: block;
+    text-align: left;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 17px;
+    color: #7a5a3a;
+    margin: 14px 0 6px;
+}
+
+.input-form {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #d8c49a;
+    font-size: 15px;
+    font-family: "Segoe UI", sans-serif;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.input-form:focus {
+    border-color: #e63950;
+    box-shadow: 0 0 0 2px rgba(230,57,80,0.2);
+}
+
+.textarea-form {
+    resize: vertical;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+}
+
+.botoes-form {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.botoes-form .btn-fechar,
+.botoes-form .btn-guardar {
+    flex: 1;
+    margin: 0;
+}
+
+.btn-guardar {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #ff8a9a, #e63950);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow:
+        0 6px 16px rgba(230, 57, 80, 0.35),
+        inset 0 1px 1px rgba(255,255,255,0.3);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-guardar:hover {
+    transform: translateY(-2px);
+}
+.acoes-calendario {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-voltar {
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* resto das propriedades que já tinhas mantém-se igual */
+}
+
+/* botão Editar — mesmo estilo do btn-guardar, mas em tom dourado para diferenciar */
+.btn-editar {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #f7e7b4, #d4b45f);
+    color: #7a5a3a;
+    border: none;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow:
+        0 6px 16px rgba(212, 180, 95, 0.4),
+        inset 0 1px 1px rgba(255,255,255,0.4);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+    flex: 1;
+}
+
+.btn-editar:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 10px 22px rgba(212, 180, 95, 0.5),
+        inset 0 1px 1px rgba(255,255,255,0.4);
+}
+
+.btn-editar:active {
+    transform: translateY(0) scale(0.97);
+}
+
+/* botão Fechar — agora com o mesmo estilo pill/gradiente dos outros */
+.btn-fechar {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #ff8a9a, #e63950);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow:
+        0 6px 16px rgba(230, 57, 80, 0.35),
+        inset 0 1px 1px rgba(255,255,255,0.3);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+    flex: 1;
+}
+
+.btn-fechar:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 10px 22px rgba(230, 57, 80, 0.45),
+        inset 0 1px 1px rgba(255,255,255,0.3);
+}
+
+.btn-fechar:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.botoes-form {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
 }

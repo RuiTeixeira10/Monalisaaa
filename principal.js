@@ -10,83 +10,28 @@ const fotos = [
     "imagens/foto5.jpeg",
 ];
 
-function criarFotoAleatoria() {
-    const bg = document.getElementById("bg-fotos");
-    const container = document.querySelector(".container");
+function montarFaixa(elementoId, listaFotos) {
+    const faixa = document.getElementById(elementoId);
+    const listaCompleta = [...listaFotos, ...listaFotos]; // duplicada, para loop contínuo
 
-    const img = document.createElement("img");
-    img.className = "bg-foto";
-    img.src = escolherFotoAleatoria();
+    listaCompleta.forEach(src => {
+        const card = document.createElement("div");
+        card.className = "foto-carrossel";
 
-    const larguraFoto = 250;
-    const alturaFoto = 250;
-    const margemSeguranca = 20; // espaço extra à volta do container, para não ficar colado
+        const img = document.createElement("img");
+        img.src = src;
 
-    const maxLeft = window.innerWidth - larguraFoto - 10;
-    const maxTop = window.innerHeight - alturaFoto - 10;
-
-    const containerRect = container.getBoundingClientRect();
-
-    let posX, posY, tentativas = 0;
-    const maxTentativas = 30;
-
-    do {
-        posX = Math.max(10, Math.random() * maxLeft);
-        posY = Math.max(10, Math.random() * maxTop);
-        tentativas++;
-    } while (
-        sobrepoeContainer(posX, posY, larguraFoto, alturaFoto, containerRect, margemSeguranca) &&
-        tentativas < maxTentativas
-    );
-
-    // se não encontrou posição livre em 30 tentativas, não mostra esta foto
-    if (tentativas >= maxTentativas) return;
-
-    img.style.left = posX + "px";
-    img.style.top = posY + "px";
-
-    bg.appendChild(img);
-
-    setTimeout(() => {
-        img.style.opacity = 1;
-    }, 100);
-
-    setTimeout(() => {
-        img.style.opacity = 0;
-        setTimeout(() => img.remove(), 2000);
-    }, 5000);
+        card.appendChild(img);
+        faixa.appendChild(card);
+    });
 }
 
-// verifica se o retângulo da foto colide com o retângulo do container
-function sobrepoeContainer(x, y, largura, altura, containerRect, margem) {
-    const fotoLeft = x;
-    const fotoRight = x + largura;
-    const fotoTop = y;
-    const fotoBottom = y + altura;
+function iniciarCarrosseis() {
+    // faixa de cima: ordem normal
+    montarFaixa("carrosselTopo", fotos);
 
-    const contLeft = containerRect.left - margem;
-    const contRight = containerRect.right + margem;
-    const contTop = containerRect.top - margem;
-    const contBottom = containerRect.bottom + margem;
-
-    return !(
-        fotoRight < contLeft ||
-        fotoLeft > contRight ||
-        fotoBottom < contTop ||
-        fotoTop > contBottom
-    );
+    // faixa de baixo: ordem invertida — a última foto de cima é a primeira aqui
+    montarFaixa("carrosselFundo", [...fotos].reverse());
 }
 
-setInterval(criarFotoAleatoria, 3000);
-
-let ultimaFotoIndex = -1;
-
-function escolherFotoAleatoria() {
-    let indice;
-    do {
-        indice = Math.floor(Math.random() * fotos.length);
-    } while (indice === ultimaFotoIndex && fotos.length > 1);
-
-    ultimaFotoIndex = indice;
-    return fotos[indice];
-}
+iniciarCarrosseis();

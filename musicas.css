@@ -9,6 +9,30 @@ body {
     background: linear-gradient(135deg, #ff9a9e, #fecfef);
 }
 
+/* padrão de corações pixelizados, atrás de tudo */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.12;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%23ffffff'%3E%3Crect x='8' y='8' width='4' height='4'/%3E%3Crect x='12' y='8' width='4' height='4'/%3E%3Crect x='20' y='8' width='4' height='4'/%3E%3Crect x='24' y='8' width='4' height='4'/%3E%3Crect x='4' y='12' width='4' height='4'/%3E%3Crect x='8' y='12' width='4' height='4'/%3E%3Crect x='12' y='12' width='4' height='4'/%3E%3Crect x='16' y='12' width='4' height='4'/%3E%3Crect x='20' y='12' width='4' height='4'/%3E%3Crect x='24' y='12' width='4' height='4'/%3E%3Crect x='28' y='12' width='4' height='4'/%3E%3Crect x='4' y='16' width='4' height='4'/%3E%3Crect x='8' y='16' width='4' height='4'/%3E%3Crect x='12' y='16' width='4' height='4'/%3E%3Crect x='16' y='16' width='4' height='4'/%3E%3Crect x='20' y='16' width='4' height='4'/%3E%3Crect x='24' y='16' width='4' height='4'/%3E%3Crect x='28' y='16' width='4' height='4'/%3E%3Crect x='8' y='20' width='4' height='4'/%3E%3Crect x='12' y='20' width='4' height='4'/%3E%3Crect x='16' y='20' width='4' height='4'/%3E%3Crect x='20' y='20' width='4' height='4'/%3E%3Crect x='24' y='20' width='4' height='4'/%3E%3Crect x='12' y='24' width='4' height='4'/%3E%3Crect x='16' y='24' width='4' height='4'/%3E%3Crect x='20' y='24' width='4' height='4'/%3E%3Crect x='16' y='28' width='4' height='4'/%3E%3C/g%3E%3C/svg%3E");
+
+    background-size: 90px 90px;
+    background-repeat: repeat;
+    image-rendering: pixelated;
+}
+
+.container {
+    position: relative;
+    z-index: 1; /* garante que fica por cima dos corações */
+}
+
 h1 {
     margin-bottom: 8px;
     font-size: 46px;
@@ -37,6 +61,8 @@ h1::after {
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
 }
 
 .titulo-musicas {
@@ -419,4 +445,91 @@ h1::after {
 
 .btn-spotify:active {
     transform: translateY(0) scale(0.97);
+}
+
+.lista-paginada {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lista-paginada {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lista-musicas {
+    flex: 1;
+    position: relative;
+    /* já não tem altura fixa — cresce com o conteúdo */
+}
+
+.pagina-musicas {
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* quando NÃO está a animar troca de página, ocupa o fluxo normal */
+.pagina-musicas.entrando,
+.pagina-musicas:not(.saindo-esquerda):not(.saindo-direita) {
+    position: relative;
+}
+
+/* só durante a transição fica absoluta, para permitir o slide sobreposto */
+.pagina-musicas.saindo-esquerda,
+.pagina-musicas.saindo-direita {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.pagina-musicas.saindo-esquerda {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.pagina-musicas.saindo-direita {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.seta-pagina {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #ff8a9a, #e63950);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow:
+        0 6px 16px rgba(230, 57, 80, 0.35),
+        inset 0 1px 1px rgba(255,255,255,0.3);
+    transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.seta-pagina:hover {
+    transform: scale(1.08);
+}
+
+.seta-pagina:active {
+    transform: scale(0.95);
+}
+
+/* esconde completamente, em vez de só desativar visualmente */
+.seta-pagina.escondida {
+    display: none;
+}
+
+.indicador-pagina {
+    text-align: center;
+    margin-top: 14px;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    color: #7a5a3a;
+    font-size: 16px;
 }

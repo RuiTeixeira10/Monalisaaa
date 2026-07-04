@@ -7,7 +7,6 @@ const musicas = {
         audio: "mp3/idontwant.MP3",
         spotify: "https://open.spotify.com/intl-pt/track/5qlJg0Wbj3sslxfwiaRNpq?si=7fae972b22cc4304",
 
-
         linhas: [
             "Then I kiss your eyes",
             "And thank God we're together",
@@ -37,16 +36,17 @@ const musicas = {
             "Ainda sentiria a tua falta, amor",
             "E não quero perder nada"
         ]
-    },    
+    },
 
     heaven: {
         titulo: "Heaven",
         autor: "Bryan Adams",
         capa: "imagens/heaven.jpg",
         categoria: "inglesas",
+        audio: "mp3/heaven.MP3",
+        spotify: "https://open.spotify.com/intl-pt/track/7Ewz6bJ97vUqk5HdkvguFQ?si=d5d372a1875240c6",
 
         linhas: [
-            // TU COLOCAS AQUI AS LINHAS MANUALMENTE
             "Baby, you're all that I want",
             "When you're lying here in my arms",
             "I'm finding it hard to believe",
@@ -68,7 +68,6 @@ const musicas = {
         ],
 
         traducao: [
-            // TRADUÇÃO RESUMIDA LINHA A LINHA
             "Amor, és tudo o que eu quero",
             "Quando estás deitada nos meus braços",
             "É difícil acreditar",
@@ -95,6 +94,8 @@ const musicas = {
         autor: "Goo Goo Dolls",
         capa: "imagens/iris.webp",
         categoria: "inglesas",
+        audio: "mp3/iris.MP3",
+        spotify: "https://open.spotify.com/intl-pt/track/6Qyc6fS4DsZjB2mRW9DsQs?si=920b14f2f7cc442d",
 
         linhas: [
             "And I'd give up forever to touch you",
@@ -116,6 +117,8 @@ const musicas = {
         autor: "The Pretenders",
         capa: "imagens/stand.jpg",
         categoria: "inglesas",
+        audio: "mp3/standbyyou.MP3",
+        spotify: "https://open.spotify.com/intl-pt/track/3Nf8oGn1okobzjDcFCvT6n?si=a3aeef4191e94090",
 
         linhas: [
             "Oh, why you look so sad?",
@@ -153,182 +156,210 @@ const musicas = {
             "Eu vou estar ao teu lado"
         ]
     },
-    
+
     standByYou2: {
-    titulo: "I'll Stand By You II",
-    autor: "The Pretenders",
-    capa: "imagens/stand.jpg",
-    categoria: "inglesas",
+        titulo: "I'll Stand By You II",
+        autor: "The Pretenders",
+        capa: "imagens/stand.jpg",
+        categoria: "inglesas",
+        audio: "mp3/standbyyou2.MP3",
+        spotify: "https://open.spotify.com/intl-pt/track/3Nf8oGn1okobzjDcFCvT6n?si=a3aeef4191e94090",
 
-    linhas: [
-        "So",
-        "If you're mad, get mad",
-        "Don't hold it all inside",
-        "Come on and talk to me now",
-        "But hey, what you've got to hide",
-        "I get angry too",
-        "Well, I'm a lot like you",
-        "When you're standing at the crossroads",
-        "Don't know which path to choose",
-        "Let me come along",
-        "Cause even if you're wrong",
+        linhas: [
+            "So",
+            "If you're mad, get mad",
+            "Don't hold it all inside",
+            "Come on and talk to me now",
+            "But hey, what you've got to hide",
+            "I get angry too",
+            "Well, I'm a lot like you",
+            "When you're standing at the crossroads",
+            "Don't know which path to choose",
+            "Let me come along",
+            "Cause even if you're wrong",
 
-        "I'll stand by you",
-        "I'll stand by you",
-        "Won't let nobody hurt you",
-        "I'll stand by you",
-        "Take me in into your darkest hour",
-        "And I'll never desert you",
-        "I'll stand by you",
+            "I'll stand by you",
+            "I'll stand by you",
+            "Won't let nobody hurt you",
+            "I'll stand by you",
+            "Take me in into your darkest hour",
+            "And I'll never desert you",
+            "I'll stand by you",
 
-        "And when",
-        "When the night falls on you, baby",
-        "You're feeling all alone",
-        "Walking on your own",
+            "And when",
+            "When the night falls on you, baby",
+            "You're feeling all alone",
+            "Walking on your own",
 
-        "I'll stand by you",
-        "I'll stand by you"
-    ],
+            "I'll stand by you",
+            "I'll stand by you"
+        ],
 
-    traducao: [
-        "Então",
-        "Se estás zangada, fica zangada",
-        "Não guardes tudo dentro de ti",
-        "Vem falar comigo agora",
-        "Mas olha, o que tens a esconder?",
-        "Eu também fico zangado",
-        "Bem, sou muito como tu",
-        "Quando estás na encruzilhada",
-        "Sem saber que caminho escolher",
-        "Deixa-me ir contigo",
-        "Porque mesmo que estejas errada",
+        traducao: [
+            "Então",
+            "Se estás zangada, fica zangada",
+            "Não guardes tudo dentro de ti",
+            "Vem falar comigo agora",
+            "Mas olha, o que tens a esconder?",
+            "Eu também fico zangado",
+            "Bem, sou muito como tu",
+            "Quando estás na encruzilhada",
+            "Sem saber que caminho escolher",
+            "Deixa-me ir contigo",
+            "Porque mesmo que estejas errada",
 
-        "Eu vou estar ao teu lado",
-        "Eu vou estar ao teu lado",
-        "Não deixarei ninguém magoar-te",
-        "Eu vou estar ao teu lado",
-        "Leva-me contigo para a tua hora mais escura",
-        "E eu nunca te vou abandonar",
-        "Eu vou estar ao teu lado",
+            "Eu vou estar ao teu lado",
+            "Eu vou estar ao teu lado",
+            "Não deixarei ninguém magoar-te",
+            "Eu vou estar ao teu lado",
+            "Leva-me contigo para a tua hora mais escura",
+            "E eu nunca te vou abandonar",
+            "Eu vou estar ao teu lado",
 
-        "E quando",
-        "Quando a noite cai sobre ti, amor",
-        "E te sentes completamente sozinha",
-        "A caminhar por conta própria",
+            "E quando",
+            "Quando a noite cai sobre ti, amor",
+            "E te sentes completamente sozinha",
+            "A caminhar por conta própria",
 
-        "Eu vou estar ao teu lado",
-        "Eu vou estar ao teu lado"
-    ]
-},
+            "Eu vou estar ao teu lado",
+            "Eu vou estar ao teu lado"
+        ]
+    },
+
     takeMyBreath: {
-    titulo: "Take My Breath Away",
-    autor: "Berlin",
-    capa: "imagens/take.jpg",
-    categoria: "inglesas",
+        titulo: "Take My Breath Away",
+        autor: "Berlin",
+        capa: "imagens/take.jpg",
+        categoria: "inglesas",
+        audio: "mp3/takemybreathaway.MP3",
+        spotify: "https://open.spotify.com/intl-pt/track/15MJ5NThPjj6xhPcts8MiY?si=234fa846ca5f4dd5",
 
-    linhas: [
-        "Turning and returning",
-        "To some secret place inside",
-        "Watching in slow motion",
-        "As you turn my way and say",
+        linhas: [
+            "Turning and returning",
+            "To some secret place inside",
+            "Watching in slow motion",
+            "As you turn my way and say",
 
-        "Take my breath away",
-        "My love, take my breath away",
-        "My love, take my breath away (my love)",
-        "My love, take my breath away (my love)"
-    ],
+            "Take my breath away",
+            "My love, take my breath away",
+            "My love, take my breath away (my love)",
+            "My love, take my breath away (my love)"
+        ],
 
-    traducao: [
-        "Virando e retornando",
-        "A algum lugar secreto dentro",
-        "Observando em câmara lenta",
-        "Enquanto viras para mim e dizes",
+        traducao: [
+            "Virando e retornando",
+            "A algum lugar secreto dentro",
+            "Observando em câmara lenta",
+            "Enquanto viras para mim e dizes",
 
-        "Tira-me o fôlego",
-        "Amor, tira-me o fôlego",
-        "Amor, tira-me o fôlego (meu amor)",
-        "Amor, tira-me o fôlego (meu amor)"
-    ]
-},
+            "Tira-me o fôlego",
+            "Amor, tira-me o fôlego",
+            "Amor, tira-me o fôlego (meu amor)",
+            "Amor, tira-me o fôlego (meu amor)"
+        ]
+    },
 
     yoTeEsperare: {
-    titulo: "Yo Te Esperaré",
-    autor: "Cali & El Dandee",
-    capa: "imagens/yo.jpg",
-    categoria: "espanholas",
+        titulo: "Yo Te Esperaré",
+        autor: "Cali & El Dandee",
+        capa: "imagens/yo.jpg",
+        categoria: "espanholas",
+        audio: "mp3/yoteesperare.MP3",
+        spotify: "https://open.spotify.com/intl-pt/track/0mGvaKpwLYoybnIoboC3uS?si=56b7257f5eab4e2c",
 
-    linhas: [
-        "Yo te esperaré",
-        "Nos sentaremos juntos frente al mar",
-        "Y de tu mano podré caminar",
-        "Y aunque se pase toda mi vida",
-        "Yo te esperaré"
-    ],
+        linhas: [
+            "Yo te esperaré",
+            "Nos sentaremos juntos frente al mar",
+            "Y de tu mano podré caminar",
+            "Y aunque se pase toda mi vida",
+            "Yo te esperaré"
+        ],
 
-    traducao: [
-        "Eu vou esperar por ti",
-        "Vamos sentar-nos juntos frente ao mar",
-        "E de tua mão eu poderei caminhar",
-        "E mesmo que passe toda a minha vida",
-        "Eu vou esperar por ti"
-    ]
-},
+        traducao: [
+            "Eu vou esperar por ti",
+            "Vamos sentar-nos juntos frente ao mar",
+            "E de tua mão eu poderei caminhar",
+            "E mesmo que passe toda a minha vida",
+            "Eu vou esperar por ti"
+        ]
+    },
 
     linhadotempo: {
-    titulo: "Na Linha do tempo",
-    autor: "Victor e Leo",
-    capa: "imagens/tempo.png",
+        titulo: "Na Linha do tempo",
+        autor: "Victor e Leo",
+        capa: "imagens/tempo.png",
+        categoria: "brasileiras",
+        audio: "mp3/linhadotempo.MP3",
+        spotify: "https://open.spotify.com/intl-pt/track/4juuHs3mbaZKuiBUEDgLzF?si=93dd1811872c4ad1",
+
+        linhas: [
+            "Na linha do tempo, o destino escreveu",
+            "Com letras douradas, você e eu",
+
+            "Há quanto tempo eu esperava encontrar alguém assim",
+            "Que se encaixasse bem nos planos que um dia fiz pra mim",
+            "Você e eu",
+
+            "Vou dizer",
+            "Que nessas frases tem um pouco de nós dois",
+            "Que não deixamos o agora pra depois",
+            "Quando te vejo eu me sinto tão completo por onde eu vou",
+
+            "E nesses traços vou tentando descrever",
+            "Que mil palavras é tão pouco pra dizer",
+            "Que um sentimento muda tudo, muda o mundo",
+            "Isso é o amor"
+        ],
+
+        traducao: []
+    },
+
+    teVivo: {
+    titulo: "Te Vivo",
+    autor: "Luan Santana",
+    capa: "imagens/tevivo.jpg",
     categoria: "brasileiras",
+    audio: "mp3/tevivo.mp3",
+    spotify: "https://open.spotify.com/intl-pt/track/3D1L6lARlxoBGwiMRlxIhn?si=4d4edf861b2c4844",
 
-    linhas: [
-        "Na linha do tempo, o destino escreveu",
-        "Com letras douradas, você e eu",
-
-        "Há quanto tempo eu esperava encontrar alguém assim",
-        "Que se encaixasse bem nos planos que um dia fiz pra mim",
-        "Você e eu",
-
-        "Vou dizer",
-        "Que nessas frases tem um pouco de nós dois",
-        "Que não deixamos o agora pra depois",
-        "Quando te vejo eu me sinto tão completo por onde eu vou",
-
-        "E nesses traços vou tentando descrever",
-        "Que mil palavras é tão pouco pra dizer",
-        "Que um sentimento muda tudo, muda o mundo",
-        "Isso é o amor"
+         linhas: [
+        "A gente não precisa tá colado pra tá junto",
+        "Os nossos corpos se conversam por horas e horas",
+        "Sem palavras, tão dizendo o quanto se adoram",
+        "Eu não preciso te olhar pra te ter em meu mundo",
+        "Porque, aonde quer que eu vá, você está em tudo",
+        "Tudo que eu preciso… te vivo"
     ],
 
-    traducao: [] // ← vazio porque não tem tradução
-}
-
+        traducao: []
+    }
 
 };
+
+let musicaAtual = null;
+
+// ===== POPUP DA MÚSICA =====
 
 function abrirMusica(id) {
     musicaAtual = id;
     const m = musicas[id];
 
-    // Mostrar ou esconder o botão de tradução
     const btnTrad = document.getElementById("btnTraducao");
     if (!m.traducao || m.traducao.length === 0) {
-        btnTrad.style.display = "none";   // música sem tradução → esconder
+        btnTrad.style.display = "none";
     } else {
-        btnTrad.style.display = "block";  // música com tradução → mostrar
+        btnTrad.style.display = "block";
     }
 
-    // Título, autor e capa
     document.getElementById("tituloMusica").textContent = m.titulo;
     document.getElementById("autorMusica").textContent = m.autor;
     document.getElementById("capaMusica").src = m.capa;
     document.getElementById("btnSpotify").href = m.spotify;
 
-    // Limpar letra antiga
     const letraDiv = document.getElementById("letraMusica");
     letraDiv.innerHTML = "";
 
-    // Criar linhas da letra
-    m.linhas.forEach((linha, i) => {
+    m.linhas.forEach((linha) => {
         const bloco = document.createElement("div");
         bloco.className = "linha-bloco";
 
@@ -340,27 +371,17 @@ function abrirMusica(id) {
         letraDiv.appendChild(bloco);
     });
 
-    // Mostrar popup
     document.getElementById("popupMusica").style.display = "flex";
 
-    // Ligar o áudio da música
-    audio.src =  m.audio;
-
-    document.getElementById("btnSpotify").onclick = () => {
-    window.open(m.spotify, "_blank");
-};
-
+    audio.src = m.audio;
 }
-
 
 function mostrarTraducao() {
     const m = musicas[musicaAtual];
     const letraDiv = document.getElementById("letraMusica");
-
     const blocos = letraDiv.querySelectorAll(".linha-bloco");
 
     blocos.forEach((bloco, i) => {
-        // evitar duplicar tradução se clicar duas vezes
         if (bloco.querySelector(".linha-trad")) return;
 
         const pTrad = document.createElement("p");
@@ -374,26 +395,16 @@ function mostrarTraducao() {
 function fecharPopupMusica() {
     audio.pause();
     audio.currentTime = 0;
+    btnPlay.textContent = "▶";
+    progresso.style.width = "0%";
     document.getElementById("popupMusica").style.display = "none";
 }
+
 function voltarPagina() {
-    window.location.href = "principal.html"; 
+    window.location.href = "principal.html";
 }
 
-function filtrarMusicas(cat) {
-    const itens = document.querySelectorAll(".musica-item");
-
-    itens.forEach(item => {
-        const id = item.getAttribute("data-id");
-        const m = musicas[id];
-
-        if (cat === "todas" || m.categoria === cat) {
-            item.style.display = "block";
-        } else {
-            item.style.display = "none";
-        }
-    });
-}
+// ===== PLAYER DE ÁUDIO =====
 
 const audio = document.getElementById("audioMusica");
 const btnPlay = document.getElementById("btnPlay");
@@ -409,22 +420,120 @@ btnPlay.addEventListener("click", () => {
     }
 });
 
-// atualizar a barra de progresso
 audio.addEventListener("timeupdate", () => {
     const percentagem = (audio.currentTime / audio.duration) * 100;
     progresso.style.width = percentagem + "%";
 });
 
-// permitir clicar na barra para saltar no tempo
 document.querySelector(".barra-progresso").addEventListener("click", (e) => {
     const barra = e.currentTarget;
     const clique = e.offsetX / barra.offsetWidth;
     audio.currentTime = clique * audio.duration;
 });
 
-// reset do botão quando a música acaba
 audio.addEventListener("ended", () => {
-    btnPlay.textContent = "▶️ Play";
+    btnPlay.textContent = "▶";
     progresso.style.width = "0%";
 });
 
+// ===== LISTA PAGINADA DE MÚSICAS =====
+
+const ITENS_POR_PAGINA = 8;
+let categoriaAtual = "todas";
+let paginaAtual = 0;
+
+function nomesMusicas() {
+    return Object.keys(musicas).map(id => ({
+        id,
+        titulo: musicas[id].titulo,
+        autor: musicas[id].autor,
+        categoria: musicas[id].categoria
+    }));
+}
+
+function musicasFiltradas() {
+    const todas = nomesMusicas();
+    if (categoriaAtual === "todas") return todas;
+    return todas.filter(m => m.categoria === categoriaAtual);
+}
+
+function totalPaginas() {
+    return Math.max(1, Math.ceil(musicasFiltradas().length / ITENS_POR_PAGINA));
+}
+
+function renderizarPagina(direcao = 0) {
+    const lista = document.getElementById("listaMusicas");
+    const itens = musicasFiltradas();
+    const inicio = paginaAtual * ITENS_POR_PAGINA;
+    const itensPagina = itens.slice(inicio, inicio + ITENS_POR_PAGINA);
+
+    const paginaEl = document.createElement("div");
+    paginaEl.className = "pagina-musicas";
+
+    itensPagina.forEach(m => {
+        const div = document.createElement("div");
+        div.className = "musica-item";
+        div.textContent = `${m.titulo} — ${m.autor}`;
+        div.onclick = () => abrirMusica(m.id);
+        paginaEl.appendChild(div);
+    });
+
+    const paginaAntiga = lista.querySelector(".pagina-musicas");
+
+    if (paginaAntiga && direcao !== 0) {
+        paginaAntiga.classList.add(direcao > 0 ? "saindo-esquerda" : "saindo-direita");
+        setTimeout(() => paginaAntiga.remove(), 300);
+
+        paginaEl.classList.add(direcao > 0 ? "saindo-direita" : "saindo-esquerda");
+        lista.appendChild(paginaEl);
+
+        requestAnimationFrame(() => {
+            paginaEl.classList.remove("saindo-direita", "saindo-esquerda");
+            paginaEl.classList.add("entrando");
+        });
+    } else {
+        lista.innerHTML = "";
+        lista.appendChild(paginaEl);
+    }
+
+    atualizarControlosPagina();
+}
+
+function atualizarControlosPagina() {
+    const total = totalPaginas();
+    const setaEsq = document.getElementById("setaEsquerda");
+    const setaDir = document.getElementById("setaDireita");
+
+    // esconde a seta esquerda na primeira página
+    setaEsq.classList.toggle("escondida", paginaAtual === 0);
+
+    // esconde a seta direita na última página
+    setaDir.classList.toggle("escondida", paginaAtual >= total - 1);
+
+    document.getElementById("indicadorPagina").textContent = `${paginaAtual + 1} / ${total}`;
+}
+
+function mudarPagina(direcao) {
+    const total = totalPaginas();
+    const novaPagina = paginaAtual + direcao;
+
+    if (novaPagina < 0 || novaPagina >= total) return;
+
+    paginaAtual = novaPagina;
+    renderizarPagina(direcao);
+}
+
+function filtrarMusicas(categoria, botao) {
+    categoriaAtual = categoria;
+    paginaAtual = 0;
+
+    document.querySelectorAll(".categorias button").forEach(btn => {
+        btn.classList.remove("ativa");
+    });
+    if (botao) botao.classList.add("ativa");
+
+    renderizarPagina();
+}
+
+// inicializa a lista ao carregar a página
+renderizarPagina();
