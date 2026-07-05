@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Dates</title>
+    <link rel="stylesheet" href="dates.css">
+</head>
+<body>
+
+    <div class="dates-container">
+
+        <h1>Dates a viver</h1>
+
+        <div class="progresso-dates">
+            <div class="barra-progresso-dates">
+                <div id="progressoFill" class="progresso-fill"></div>
+            </div>
+            <p id="progressoTexto" class="progresso-texto"></p>
+        </div>
+
+        <div class="lista-dates" id="listaDates"></div>
+
+        <button class="btn-adicionar-date" onclick="abrirFormularioDate()">+ Adicionar date</button>
+
+        <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
+    </div>
+
+    <!-- POPUP DE CRIAÇÃO -->
+    <div id="popupFormularioDate" class="popup-date">
+        <div class="popup-card-date">
+            <h2>Novo date</h2>
+
+            <label class="label-form">O que vamos fazer?</label>
+            <input type="text" id="inputDate" class="input-form" placeholder="Ex: Jantar à luz das velas">
+
+            <label class="label-form">Nota (opcional)</label>
+            <textarea id="inputNotaDate" class="input-form textarea-form" rows="3" placeholder="Algum detalhe especial..."></textarea>
+
+            <div class="botoes-form">
+                <button class="btn-fechar" onclick="fecharFormularioDate()">Cancelar</button>
+                <button class="btn-guardar" onclick="guardarDate()">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dates.js"></script>
+</body>
+</html>

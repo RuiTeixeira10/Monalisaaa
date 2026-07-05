@@ -158,7 +158,7 @@ const musicas = {
     },
 
     standByYou2: {
-        titulo: "I'll Stand By You II",
+        titulo: "I'll Stand By You 2",
         autor: "The Pretenders",
         capa: "imagens/stand.jpg",
         categoria: "inglesas",
