@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo da Framboesa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="framboesa.css">
+</head>
+<body>
+    <div class="jogo-wrapper">
+        <h1 class="titulo">🍓 Stop the Framboesa</h1>
+
+        <div class="hud">
+            <div class="hud-item" id="pontuacao">Pontos: 0</div>
+            <div class="hud-item" id="tempo">Tempo: 40s</div>
+        </div>
+
+        <canvas id="jogo" width="400" height="600"></canvas>
+
+        <button id="btnStart">Começar</button>
+    </div>
+
+    <div id="popupFinal" class="popup-final">
+    <div class="popup-card">
+        <p id="popupMensagem"></p>
+        <button id="popupFechar">Fechar</button>
+    </div>
+</div>
+
+
+    <script src="framboesa.js"></script>
+</body>
+</html>

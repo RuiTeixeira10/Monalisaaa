@@ -2,26 +2,36 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Jogo</title>
+    <title>Jogos</title>
     <link rel="stylesheet" href="jogo.css">
 </head>
 <body>
 
-<div class="jogo-container">
-    <h1 class="titulo-jogo">Jogo</h1>
+<div class="musicas-container"> <!-- mesmo container das músicas -->
 
-    <div class="jogo-box">
-        <p class="texto-construcao">Em construção...</p>
+    <h1 class="titulo-musicas">Jogos</h1> <!-- mesmo estilo do título -->
+
+    <div class="lista-paginada">
+        <div class="lista-musicas">
+
+            <!-- CARD DO JOGO DA FRAMBOESA -->
+            <div class="musica-item" onclick="irPara('framboesa.html')">
+                🍓 Jogo da Framboesa
+            </div>
+
+            <!-- Aqui podes adicionar mais jogos no futuro -->
+            <!--
+            <div class="musica-item" onclick="irPara('outrojogo.html')">
+                Outro Jogo
+            </div>
+            -->
+
+        </div>
     </div>
 
     <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
 </div>
 
-<script>
-function voltarPagina() {
-    window.location.href = "principal.html";
-}
-</script>
-
+<script src="jogo.js"></script>
 </body>
 </html>
